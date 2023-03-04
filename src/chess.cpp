@@ -35,18 +35,4 @@ void Chess::setBishopPosition(int row, int col) {
   bishop_pos.col = col;
 }
 
-int main() {
-  Chess chess_game;
-
-  // Задаем начальные позиции фигур
-  chess_game.setKingPosition(1, 1);
-  chess_game.setRookPosition(1, 8);
-  chess_game.setBishopPosition(3, 3);
-
-  // Проверяем, угрожает ли королю ладья или слон
-  chess_game.checkThreatToKing();
-
-  return 0;
-}
-
 
