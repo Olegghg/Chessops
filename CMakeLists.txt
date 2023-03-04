@@ -28,7 +28,7 @@ find_package(GTest REQUIRED)
 include_directories(${GTEST_INCLUDE_DIRS})
 
 # Link with GTest
-target_link_libraries(your_executable ${GTEST_LIBRARIES} pthread)
+target_link_libraries(chess_test ${GTEST_LIBRARIES} pthread)
 
 # Добавление цели для сборки документации
 find_package(Doxygen)
