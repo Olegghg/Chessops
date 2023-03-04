@@ -1,0 +1,9 @@
+# Настройки для генерации документации
+PROJECT_NAME           = "ChessGame"
+OUTPUT_DIRECTORY       = "docs/html"
+GENERATE_HTML          = YES
+GENERATE_LATEX         = NO
+GENERATE_MAN           = NO
+GENERATE_RTF           = NO
+GENERATE_XML           = NO
+
