@@ -23,6 +23,13 @@ add_library(chess_lib ${SOURCES})
 add_executable(tests ${TEST_SOURCES})
 target_link_libraries(tests chess_lib)
 
+# Locate GTest
+find_package(GTest REQUIRED)
+include_directories(${GTEST_INCLUDE_DIRS})
+
+# Link with GTest
+target_link_libraries(your_executable ${GTEST_LIBRARIES} pthread)
+
 # Добавление цели для сборки документации
 find_package(Doxygen)
 if (DOXYGEN_FOUND)
