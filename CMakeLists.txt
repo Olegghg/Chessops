@@ -16,19 +16,24 @@ set(TEST_SOURCES
 # Директории с заголовочными файлами
 include_directories(include)
 
+# Добавляем Google Test
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.zip
+)
+FetchContent_MakeAvailable(googletest)
+
 # Создание библиотеки
 add_library(chess_lib ${SOURCES})
 
 # Создание исполняемого файла для тестов
-add_executable(tests ${TEST_SOURCES})
-target_link_libraries(tests chess_lib)
+add_executable(chess_test ${TEST_SOURCES})
+target_link_libraries(chess_test gtest_main chess_lib)
 
-# Locate GTest
-find_package(GTest REQUIRED)
-include_directories(${GTEST_INCLUDE_DIRS})
-
-# Link with GTest
-target_link_libraries(chess_test ${GTEST_LIBRARIES} pthread)
+# Добавление тестов в CTest
+include(GoogleTest)
+gtest_discover_tests(chess_test)
 
 # Добавление цели для сборки документации
 find_package(Doxygen)
@@ -45,4 +50,3 @@ if (DOXYGEN_FOUND)
         VERBATIM
     )
 endif()
-
