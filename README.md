@@ -14,7 +14,7 @@ Chess Game
   
 Перейти в папку с проектом:
 
-  cd chess-game
+  cd Chessops
   
 Собрать проект с помощью CMake:
 
